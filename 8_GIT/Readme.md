@@ -40,6 +40,7 @@ Now if you clone using ssh. It will automatically be cloned to your local sytem.
 ####Git Commands
 
 1. Initialize git in a directory/folder
+
 ```bash
 git init
 ```
