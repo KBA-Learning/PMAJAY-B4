@@ -126,9 +126,9 @@ p.dot{
     font-size: medium;
    }
     
-   li.a{
+   /* li.a{
     font-size: 14px;
-   }
+   } */
    p.b{
     font-size:15px ;
     
@@ -136,16 +136,16 @@ p.dot{
 
     img{
         float: none;
-        height:70px;
-        width:60px
+        height:100px;
+        width:160px
     }
     div.box{
         
         height: 230px;
     }
-    table{
+    /* table{
         margin:30px
-    }
+    } */
 }
 /* @media only screen and (max-width:900px) {
     
