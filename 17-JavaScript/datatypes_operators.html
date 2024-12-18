@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+<body>
+    <script>
+    let a=12;
+    let b="Hai"
+    let c=true
+    let d=null
+    var e=9;
+    document.write("The value of a is:",a);
+    document.write("<br> The Value of b is:",b);
+    document.write("<br>The value of c is :",d)
+    document.write("<br>type of a is :",typeof a)
+    document.write(`<br>Data type of 'b' is ${typeof b}`)
+
+    const m=5;
+    document.write("<br>value of m is:",m);
+    a=40;// reintialization of a
+    //m=25; // not possible
+    {
+        let a=20;// redeclaration of a
+       // m=25;// reinitialization not possible
+        const m=25;
+        document.write(`<br>The value of 'a' in this sub block is: ${a} and 'm' is: ${m}`)
+    }
+    document.write("<br>The value of a now:",a)
+
+    s=a<e;
+    document.write("<br> Result of Relational operation is:",s)
+
+    p=a>e && m<e
+    document.write("<br> Result of logical AND is:",p)
+
+    r= a>e?a:e
+    document.write("<br> Result of Ternary operator is:",r)
+
+    x=a++;
+    document.write(`<br>The value of 'x' is ${x} and value of 'a' is ${a}`)
+    y=++e;
+    document.write(`<br>The value of 'y' is ${y} and value of 'e' is ${e}`)
+
+
+
+
+
+</script>
+</body>
+</html>
