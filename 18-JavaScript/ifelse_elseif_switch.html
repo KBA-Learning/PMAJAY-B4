@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a=15,b=10,c=2,d='2',x='%';
+        if(a<b)
+         {
+            document.write(`${a} is smaller<br>`)
+         }
+        else
+            {
+                document.write(`${b} is smaller <br>`)
+            }  
+
+            // if elseif
+
+
+        if (c===d)
+            {
+                document.write(` <br>${c} & ${d} are equal<br>`)
+            }
+            
+        else
+        {
+                document.write(`<br>${c} & ${d} are Not equal<br>`)
+            }
+
+
+        if (a<b && a<c)
+        {
+            document.write(`${a} is smaller <br>`)
+
+        }
+        else if (b<a && b<c)
+        {
+
+            document.write(`${b} is smaller <br>`)
+        }
+        else 
+        {
+            document.write(`${c} is smaller<br>`)
+        }
+
+        // switch
+        
+        switch(x)
+        {
+            case '+':{
+                let z;
+                z=a+b;
+                document.write("The sum is ",z);
+                // document.write("The sum is",a+b);
+                break;
+            }
+            case '-':{
+                document.write("The difference is",a-b);
+                break;
+            }
+            case '*':{
+                document.write("The product is",a*b);
+                break;
+            }
+            case '/':{
+                document.write("The quotient is",a/b);
+                break;
+            }
+            default:{
+                document.write("enter a valid operator");
+            }
+        }
+
+    </script>
+</body>
+</html>
