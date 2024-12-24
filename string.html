@@ -1,0 +1,31 @@
+<!--Program to check a name is present or not-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a= ["anu","ammu","sumi"];
+        document.write(a[0])
+        const l = a.length;
+        document.write(l)
+        let count = 0;
+        for(i=0;i<l;i++){
+            if(a[i]=="sandra"){
+                document.write("hi")
+                document.write("<br>Sandra is in the list");
+                count=1;
+                break;
+            }
+        }
+        
+        if(count==0){
+            
+            document.write("<br>Sandra is not in the list");
+        }
+    </script>
+</body>
+</html>
