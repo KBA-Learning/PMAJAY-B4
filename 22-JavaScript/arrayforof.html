@@ -1,0 +1,29 @@
+<!--Sum of elements in array using for of-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a=[1,2,3,4];
+        let sum = 0;
+        for(x of a){
+            sum=sum+x;
+        }
+        document.write("<br>The sum of elements in array is:",sum);
+        let z =[]
+        for(x of a){
+            if(x!=2){
+                z.push(x);
+            }
+        }
+        document.write("<br>The new array is",z)
+        let k =z.pop();
+        document.write("<br>The popped element is ", k)
+        document.write("<br>The new array is",z)
+    </script>
+</body>
+</html>
