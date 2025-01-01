@@ -1,0 +1,45 @@
+<!--Program to generate ID card-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="details" style="display: block;">
+    <form onsubmit="handleID(event)">
+    <label>Name:</label>
+    <input type="text" id="name">
+    <label>Class</label>
+    <input type="text" id="class">
+    <input type="submit" value="Generate ID">
+</form>
+</div>
+<div id="ID" style="display: none;border: solid;">
+    <h1>RNR Public School</h1>
+    <label>Name:<span id="sname"></span></label>
+    <br>
+    
+    <label>Class: <span id="sclass"></span></label>
+   
+</div>
+    <script>
+     function handleID(event){
+        event.preventDefault();  //prevent the default behaviour of form
+        const name1= event.target.elements['name'].value;
+        console.log(name1);
+        document.getElementById("details").style.display='none';
+        document.getElementById("ID").style.display='block';
+        const name = document.getElementById("name").value;
+        const class1 = document.getElementById("class").value;
+        const Student={
+            name:name,
+            class:class1
+        }
+        document.getElementById("sname").innerHTML = Student.name;
+        document.getElementById("sclass").innerHTML = Student.class;
+     }   
+    </script>
+</body>
+</html>

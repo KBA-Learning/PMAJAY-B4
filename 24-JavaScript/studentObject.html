@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const Student={
+                        fname:"Arya",
+                        lname:"V",
+                        phno:"234567"
+                        };
+        document.write("<br>The contact no of student: ",Student.phno);
+        Student.class = "V B"
+        document.write("<br>The class of student: ",Student.class);
+        const Student1 = {
+                        fname:"Sania",
+                        lname:"J",
+                        phno:"2345678",
+                        address:{
+                                    housename:"Bhavan",
+                                    houseno:"1234/34",
+                                    Place:"TVM",
+                                    pin:"6345"
+                                }       
+
+        }
+        document.write("<br>The name of second student: ",Student1.fname)
+        document.write("<br>House name of Sania: ", Student1.address.housename);
+        const s1=Object.values(Student)
+        console.log(s1);
+    </script>
+</body>
+</html>

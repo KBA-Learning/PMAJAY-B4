@@ -1,0 +1,24 @@
+<!--Increment elemnet & copy using for each-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    let a = [2,4,6,8],z=[];
+    a.forEach(function(x){
+        x=x+2;
+        z.push(x);
+
+    })
+    a.forEach((x)=>{
+        x=x+2;
+        z.push(x)
+    })
+    document.write("<br>New Array:",z)
+  </script> 
+</body>
+</html>
