@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <label>Snickers</label>
+   <label>Qty:</label>
+   <select id="qty-snick">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+   </select> 
+   <label>Price</label>
+   <p id="price-snick" >50</p>
+   <button  onclick="handleCart('qty-snick','price-snick')">Add to Cart</button>
+   <br>
+   <label>Lux</label>
+   <label>Qty:</label>
+   <select id="qty-lux">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+   </select> 
+   <label>Price</label>
+   <p id="price-lux" >250</p>
+   <button  onclick="handleCart('qty-lux','price-lux')">Add to Cart</button>
+   <button onclick="handleOut()">Checkout</button>
+   <script>
+    const cart=[];
+    let item;
+    function handleCart(qnt,itemPrice){
+        console.log(itemPrice);
+        // const qt = document.getElementById(qnt).value;
+        const qty =parseInt(document.getElementById(qnt).value) ;
+        const price =parseInt(document.getElementById(itemPrice).innerHTML) ;
+        console.log(price);
+        console.log(typeof(qty));
+        
+         item = {
+            Qnty:qty,
+            Price:price
+        }
+        cart.push(item);
+    }
+    function handleOut(){
+        console.log(cart);
+        let totalPrice=0;
+        cart.forEach((x)=>{
+            console.log(x.Qnty);
+            totalPrice+= x.Qnty*x.Price;
+           
+        })
+        console.log(totalPrice);
+    }
+   </script>
+</body>
+</html>
