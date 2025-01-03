@@ -29,8 +29,12 @@
         }
         document.write("<br>The name of second student: ",Student1.fname)
         document.write("<br>House name of Sania: ", Student1.address.housename);
-        const s1=Object.values(Student)
-        console.log(s1);
+        const myArray = Object.values(Student);
+        console.log("Array",myArray);
+        const str = JSON.stringify(Student);
+        console.log("JSON String",str);
+        const JsonF= JSON.parse(str);
+        console.log("JSON format",JsonF);
     </script>
 </body>
 </html>

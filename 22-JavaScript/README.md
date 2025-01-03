@@ -1,7 +1,9 @@
-1. JS program to read array a=[20,25,30,35,40,45] and divide the array in to two seperate arrays having equal number of elements.
+1. HTML page containing an input tab to enter temperature in celsius and on a button click, it should be converted to fahreinheit
 
-2. JS program to concatinate two arrays a=[1,2,3,4] & b=[5,6,7,8] into a single array
+2. HTML page to read "name, date-of-birth" and diaplay this in format of id card on clicking "generate ID" button.
 
-3. JS program to read an array and sort in ascending and descending order
+3. HTML to read a number and on clicking button find the square of the number.
 
-4. Write a program to read the array [1,6,7,8,2,3,4,2,2].Find the occurance of 2 in this array.
+4. Html page to enter names of fruits and insert the entered name to array and there is a dropdown and on selecting the index from drop down, display the fruit on the index.
+
+Make the calculator dynamic

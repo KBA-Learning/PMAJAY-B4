@@ -1,1 +1,1 @@
-1. HTML page to collect details of a Person like firstName,lastName,date of birth,Address(another Object),Phone number and read it on object variable and create an ID proof using this object
+1. Program to add items(price, quantity) to cart and upon checkout find total price of items on cart.

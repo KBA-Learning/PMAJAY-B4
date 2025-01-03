@@ -1,3 +1,4 @@
+<!--2d array using for loop-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +8,24 @@
 </head>
 <body>
     <script>
-        let a=[[1,2,3],[4,5,6],[7,8,9]];
-        document.write(a[1][1]);
+        let a =[[],[],[]];
+        let count = 1;
+        for(i=0;i<3;i++){
+            for(j=0;j<3;j++){
+                a[i][j]=count;
+                count++;
+            }
+        }
+
+        document.write("<br>",a);
+        document.write("<br>The 3x3 matrix is:")
+        for(i=0;i<3;i++){
+            document.write("<br>")
+            for(j=0;j<3;j++){
+                document.write(" ",a[i][j]);
+            }
+        }
+        
     </script>
 </body>
 </html>

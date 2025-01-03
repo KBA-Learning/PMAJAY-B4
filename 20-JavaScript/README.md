@@ -1,21 +1,25 @@
-1. Write a JS program to print natural numbers from 10 to 50 using while loop . Find the sum & average.
+1. JS program to find the sum of the elements in array.
 
-2. Write a JS program to print cube of numbers from 10 to 30
+2. JS program to store & print even numbers upto 20 in an array
 
-3. Write a JS program to print multiplication table for a given number
+3. JS program to check whether a number is in the array and if present print the location
 
+4. JS program to remove an element pesent in a specific location
 
-4. Write a JS program to check whether the given string is palindrome or not
+6. JS program to copy an element in an aaray to another array
 
-5. Write a JS program to print reverse of a number
+Print the pattern
 
-6. Write a JS program to print the patterns
+```
+1
+2 2
+3 3 3
 
+2 2 2
+2 2 2
+2 2 2
 
-    25,30,35,40,45,50
-
-    10,100,1000,10000
-
-    8,10,12,14,16,18,20
-    
-
+1 1 1
+2 2
+3
+```
