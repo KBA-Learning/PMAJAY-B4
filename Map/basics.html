@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+    <script>
+        function MapMethods(){
+        // const mymap=new Map();
+        // mymap.set("name","Anu");
+        // mymap.set("age",30);
+        // mymap.set("Employ",true);
+        // mymap.set("Role",["admin","user"])
+
+        const mymap = new Map([
+    ["name", "Anu"],
+    ["age", 30],
+    ["Employ", true],
+    ["Role", ["admin", "user"]]
+]);
+        //get name from map
+        document.getElementById("get").innerHTML="Name: "+ mymap.get('name');
+
+        
+        // check age key is there 
+        document.getElementById("has").innerHTML="Has a Key :"+mymap.has('age');
+        // delete a particular entry
+        document.getElementById("delete").innerHTML="After deleting Name :"+mymap.delete('name');
+        // Add new entry as Role
+        let roles=mymap.get('Role')
+        document.getElementById("role").innerHTML="After inserting Role :"+ roles.join() ;
+        // remove mymap
+       // mymap.clear();
+        document.getElementById("clear").innerHTML="After Removing mymap :"+ mymap.size ;
+        console.log(mymap);
+
+            
+            // Map Iteration
+
+            let output='';
+            mymap.forEach((value,key)=>{
+
+                if (Array.isArray(value)) // to check if the value array or not
+            {
+                output += key + '=' + value.join(' and ') + '<br>'  
+            }
+            else
+                  output += key + '=' + value + '<br>'
+            });
+
+            document.getElementById('iteration').innerHTML=output;
+
+
+
+
+
+              }
+
+
+    </script>
+</head>
+<body>
+    <h1> Map Methods</h1>
+    <h2> Map Operations</h2>
+    <button onclick="MapMethods()"> Map Methods</button>
+    <div id="get"></div>
+    <div id="has"></div>
+    <div id="delete"></div>
+    <div id="role"></div>
+    <div id="clear"></div>
+    <h3> Map iteration</h3>
+    <div id="iteration"></div>
+</body>
+</html>
