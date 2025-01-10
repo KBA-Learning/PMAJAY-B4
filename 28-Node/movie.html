@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Playlist Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .priority-high {
+            color: red;
+        }
+        .priority-medium {
+            color: orange;
+        }
+        .priority-low {
+            color: green;
+        }
+        .watched {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded shadow-md w-full max-w-lg">
+        <h1 class="text-2xl font-bold mb-4 text-center text-gray-800">Movie Playlist Manager</h1>
+
+        <!-- Input fields and button -->
+        <div class="mb-4">
+            <input id="movieName" type="text" placeholder="Enter movie name" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2">
+            <input id="priority" type="number" min="1" max="3" placeholder="Enter priority (1-High, 2-Medium, 3-Low)" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2">
+            <button id="addMovieBtn" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Add Movie</button>
+        </div>
+
+        <!-- Playlist Section -->
+        <div id="playlist" class="mt-6">
+            <h2 class="text-xl font-semibold mb-2 text-gray-700">Playlist:</h2>
+            <ul id="movieList" class="space-y-2">
+                <!-- Movies will be added here dynamically -->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Arrays to store movies and priorities
+        const movies = [];
+        const priorities = [];
+
+        // DOM Elements
+        const movieNameInput = document.getElementById('movieName');
+        const priorityInput = document.getElementById('priority');
+        const addMovieBtn = document.getElementById('addMovieBtn');
+        const movieList = document.getElementById('movieList');
+
+        // Function to add a movie
+        function addMovie() {
+            const movieName = movieNameInput.value.trim();
+            const priority = parseInt(priorityInput.value.trim(), 10);
+
+            // Validation
+            if (movieName === '') {
+                alert('Please enter a movie name!');
+                return;
+            }
+            if (isNaN(priority) || priority < 1 || priority > 3) {
+                alert('Please enter a valid priority (1-3)!');
+                return;
+            }
+
+            // Add movie and priority to arrays
+            movies.push(movieName);
+            priorities.push(priority);
+
+            // Create list item
+            const listItem = document.createElement('li');
+            listItem.className = `flex justify-between items-center p-2 bg-gray-100 rounded shadow ${getPriorityClass(priority)}`;
+
+            // Movie name span
+            const movieSpan = document.createElement('span');
+            movieSpan.textContent = movieName;
+
+            // Buttons
+            const watchedBtn = document.createElement('button');
+            watchedBtn.textContent = 'Watched';
+            watchedBtn.className = 'bg-green-500 text-white py-1 px-2 rounded hover:bg-green-600 ml-2';
+            watchedBtn.addEventListener('click', () => toggleWatched(listItem));
+
+            const editBtn = document.createElement('button');
+            editBtn.textContent = 'Edit';
+            editBtn.className = 'bg-yellow-500 text-white py-1 px-2 rounded hover:bg-yellow-600 ml-2';
+            editBtn.addEventListener('click', () => editMovie(listItem, movieName, priority));
+
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = 'Remove';
+            removeBtn.className = 'bg-red-500 text-white py-1 px-2 rounded hover:bg-red-600 ml-2';
+            removeBtn.addEventListener('click', () => removeMovie(listItem, movieName));
+
+            // Append elements to list item
+            listItem.appendChild(movieSpan);
+            listItem.appendChild(watchedBtn);
+            listItem.appendChild(editBtn);
+            listItem.appendChild(removeBtn);
+
+            // Append list item to list
+            movieList.appendChild(listItem);
+
+            // Clear input fields
+            movieNameInput.value = '';
+            priorityInput.value = '';
+        }
+
+        // Get class based on priority
+        function getPriorityClass(priority) {
+            switch (priority) {
+                case 1: return 'priority-high';
+                case 2: return 'priority-medium';
+                case 3: return 'priority-low';
+                default: return '';
+            }
+        }
+
+        // Toggle watched class
+        function toggleWatched(listItem) {
+            listItem.classList.toggle('watched');
+        }
+
+        // Edit a movie
+        function editMovie(listItem, oldName, oldPriority) {
+            const newName = prompt('Enter new movie name:', oldName);
+            const newPriority = parseInt(prompt('Enter new priority (1-High, 2-Medium, 3-Low):', oldPriority), 10);
+
+            if (!newName || isNaN(newPriority) || newPriority < 1 || newPriority > 3) {
+                alert('Invalid inputs. Edit canceled.');
+                return;
+            }
+
+            const index = movies.indexOf(oldName);
+            if (index !== -1) {
+                movies[index] = newName;
+                priorities[index] = newPriority;
+            }
+
+            listItem.className = `flex justify-between items-center p-2 bg-gray-100 rounded shadow ${getPriorityClass(newPriority)}`;
+            listItem.querySelector('span').textContent = newName;
+        }
+
+        // Remove a movie
+        function removeMovie(listItem, movieName) {
+            const index = movies.indexOf(movieName);
+            if (index !== -1) {
+                movies.splice(index, 1);
+                priorities.splice(index, 1);
+            }
+            movieList.removeChild(listItem);
+        }
+
+        // Add event listener to the button
+        addMovieBtn.addEventListener('click', addMovie);
+    </script>
+</body>
+</html>
