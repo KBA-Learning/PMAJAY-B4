@@ -23,3 +23,8 @@ https://classroom.github.com/a/9UakTaGN
 ## CSS & Tailwind Exam Link
 
 https://forms.gle/DBdsdd9zNHLZCqRV9
+
+
+## JavaScript & Node Exam
+
+Create an **Expense Tracker** application that allows users to record their expenses along with the corresponding date. The application should also provide a summary of the total expenses categorized by month.
