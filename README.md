@@ -31,3 +31,7 @@ https://forms.gle/DBdsdd9zNHLZCqRV9
 ## JavaScript & Node Exam
 
 Create an **Expense Tracker** application that allows users to record their expenses along with the corresponding date. The application should also provide a summary of the total expenses categorized by month.
+
+## Node.js Assignment Link
+
+https://docs.google.com/document/d/1oE9ZROrSmm7L4ibK_4XqMhORKoz0exp2FlFJ7eiVOI4/edit?usp=sharing
