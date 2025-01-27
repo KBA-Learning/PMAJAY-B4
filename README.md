@@ -35,3 +35,7 @@ Create an **Expense Tracker** application that allows users to record their expe
 ## Node.js Assignment Link
 
 https://docs.google.com/document/d/1oE9ZROrSmm7L4ibK_4XqMhORKoz0exp2FlFJ7eiVOI4/edit?usp=sharing
+
+## Backend MachineTest1
+
+https://docs.google.com/document/d/1pUgqdknlZtGKkZU1JNdj3N4YWOoVzfwRWwCG_U4EGV8/edit?usp=sharing
