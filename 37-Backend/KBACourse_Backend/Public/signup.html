@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="stylecss/signup.css">
+    <script>
+        
+
+        async function handleSignup(event){
+            event.preventDefault();
+            console.log("HI");
+            
+            const username = document.getElementById('UserName').value;
+            const password = document.getElementById('Password').value;
+            const firstName = document.getElementById('FirstName').value;
+            const lastName = document.getElementById('LastName').value;
+            const userRole = document.getElementById('UserRole').value;
+
+            const response =await fetch("http://127.0.0.1:8001/signup",{
+                                    method:'POST',
+                                    headers:{
+                                        'Content-Type':'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        FirstName:firstName,
+                                        LastName:lastName,
+                                        UserName:username,
+                                        Password:password,
+                                        UserRole:userRole
+                                    })
+
+                                });
+            console.log(response.status);
+            const data =await response.text();
+            console.log(data);
+            if(response.status=='201'){
+                window.location.href="login.html";
+            }
+            else if(response.status=='400'){
+                alert("Username already exist");
+            }
+            else{
+                alert("Try after sometime");
+            }
+
+        }
+    </script>
+</head>
+<body>
+
+        <nav>
+            <div class="div1"><img src="kbalogo.png" alt=""></div>
+            <div class="div2">
+            <a href="home.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="contact.html">Contact Us </a>
+            <a href="addcourse.html">Add Course</a>
+            <a href="">Logout</a>
+            </div>
+        
+        </nav>
+           <div class="container">
+            <h1>Sign Up</h1>
+            <form id="signupForm" onsubmit="handleSignup(event)">
+                <div class="inpart">
+                    <label for="name">Name :</label>
+                    <br>
+                    <input class="in1" name="FirstName" id="FirstName" type="text" placeholder="Enter your name" size="35">
+                    <br>
+            
+                    <label for="last_name">Last Name : </label>
+                    <br>
+                    <input class="in1" name="LastName" id="LastName" type="text" placeholder="Enter your Last Name" size="35">
+                    <br>
+            
+                    <label for="username">User Name : </label>
+                    <br>
+                    <input class="in1" name="UserName" id="UserName" type="text" placeholder="Enter a unique user name" size="35">
+                    <br>
+            
+                    <label for="password">Password : </label>
+                    <br>
+                    <input class="in1" name="Password" id="Password" type="password" placeholder="Enter your Password" size="35">
+                    <br>
+            
+                    <label for="role">Role : </label>
+                    <br>
+                    <select class="in1" name="UserRole" id="UserRole">
+                        <option value="admin">Admin</option>
+                        <option value="user">User</option>
+                    </select>
+                    <br>
+                    <br>
+            
+                    <input class="button1" type="submit" value="Sign Up">
+                    <br>
+                    <p>Already have an account? <a href="loginpage.html">Login</a></p>
+                </div>
+            </form>
+           </div>
+</body>
+</html

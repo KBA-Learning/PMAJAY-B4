@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="stylecss/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        async function handleLogin(){
+            const username=document.getElementById("userName").value;
+            const password=document.getElementById("password").value;
+           
+           const response= await fetch("http://127.0.0.1:8001/login",{
+                method:'POST',
+                credentials:'include',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify({
+                    UserName:username,
+                    Password:password
+                }) 
+            })
+            console.log(response);
+
+        }
+    </script>
+    <title>KBA</title>
+</head>
+<body class="flex justify-center mt-32">
+    
+    
+    <div class="bg-gray-300      p-8 max-w-sm  rounded-lg shadow-lg ">
+        <p class="text-3xl  font-mono indent-12 ">Login</p>
+        <div  class="mt-2">UserName : </div>
+        <input  type="userName"  id="userName" class="mt-2 border border-current      " >
+        <div class="mt-2" >Password : </div>
+        <input type="Password" id="password" class="mt-2 border border-slate-200  " >
+ <div  class="mt-2">
+    <button  type="submit" onclick="handleLogin()" class="mt-2 border border-stone-500  bg-red-200  min-w-20 float-right    ">Login</button>
+</div>
+ <div class="mt-10">
+    <a href="#" >Forgot Password?</a>
+</div>
+<p class="mt-8" >Don't have an account?<a href="#" class="text-sky-500      ">Sign Up</a></p>
+    </div>
+
+</body>
+</html>
