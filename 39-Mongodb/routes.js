@@ -15,4 +15,17 @@ router.post('/create',async(req,res)=>{
         
     }
 })
+router.get('/read',async(req,res)=>{
+    try{
+        const result=await sample.findById('67a31940056cce3585885d40');
+        res.status(200).send(result);
+    }
+    catch(error)
+    {
+        console.log(error);
+        res.status(500).json();
+        
+    }
+})
+
 export default router;

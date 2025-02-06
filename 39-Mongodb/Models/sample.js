@@ -5,7 +5,7 @@ import {Schema} from 'mongoose';
 import {model} from 'mongoose';
 
 const demo=new Schema({
-    userid:{type:String,required:true},
+    userid:{type:String},
     name:{type:String,required:true},
     dob:{type:String,required:true}
 });
