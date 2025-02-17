@@ -45,3 +45,7 @@ https://docs.google.com/document/d/1oE9ZROrSmm7L4ibK_4XqMhORKoz0exp2FlFJ7eiVOI4/
 ## Backend MachineTest1
 
 https://docs.google.com/document/d/1pUgqdknlZtGKkZU1JNdj3N4YWOoVzfwRWwCG_U4EGV8/edit?usp=sharing
+
+## Backend Exam link
+
+https://docs.google.com/document/d/1VECY_Ws59pHKrMHUz6FdFir_krSuEyC6juAFVuow7GU/edit?usp=sharing
