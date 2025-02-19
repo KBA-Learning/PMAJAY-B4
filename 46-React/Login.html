@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="w-full max-w-md bg-white p-8 rounded shadow">
+    <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
+    <form method="POST" action="/api/login">
+      <div class="mb-4">
+        <label for="username" class="block text-gray-700">User Name</label>
+        <input
+          type="text"
+          id="username"
+          name="UserName"
+          class="w-full p-2 border rounded mt-1"
+          required
+        />
+      </div>
+      <div class="mb-6">
+        <label for="password" class="block text-gray-700">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="Password"
+          class="w-full p-2 border rounded mt-1"
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+</body>
+</html>

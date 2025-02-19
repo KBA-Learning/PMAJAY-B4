@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="w-full max-w-md bg-white p-8 rounded shadow">
+    <h2 class="text-2xl font-bold mb-6 text-center">Sign Up</h2>
+    <form method="POST" action="/api/signup">
+      <div class="mb-4">
+        <label for="firstName" class="block text-gray-700">First Name</label>
+        <input
+          type="text"
+          id="firstName"
+          name="FirstName"
+          class="w-full p-2 border rounded mt-1"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label for="lastName" class="block text-gray-700">Last Name</label>
+        <input
+          type="text"
+          id="lastName"
+          name="LastName"
+          class="w-full p-2 border rounded mt-1"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label for="username" class="block text-gray-700">User Name</label>
+        <input
+          type="text"
+          id="username"
+          name="UserName"
+          class="w-full p-2 border rounded mt-1"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label for="password" class="block text-gray-700">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="Password"
+          class="w-full p-2 border rounded mt-1"
+          required
+        />
+      </div>
+      <div class="mb-6">
+        <label for="userRole" class="block text-gray-700">Role</label>
+        <select
+          id="userRole"
+          name="UserRole"
+          class="w-full p-2 border rounded mt-1"
+        >
+          <option value="admin">Admin</option>
+          <option value="user" selected>User</option>
+        </select>
+      </div>
+      <button
+        type="submit"
+        class="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600"
+      >
+        Sign Up
+      </button>
+    </form>
+  </div>
+</body>
+</html>
