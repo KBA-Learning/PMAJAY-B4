@@ -4,14 +4,15 @@ import { userauth } from './Routes/userroute.js';
 import adminauth from './Routes/adminroute.js';
 import adminsign from './Routes/adminsign.js';
 import cors from 'cors';
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
+import morgan from "morgan"
 
 
 
 dotenv.config();
  
 const app=express();
-
+app.use(morgan('dev'))
 app.use(cors({
     origin:'*',
     credentials:true
@@ -33,7 +34,7 @@ app.post('/',function(req,res){
     res.send("Hello Everyone");
 })
 
-mongoose.connect('mongodb://localhost:27017/KBA_COURSE').then(() => {
+mongoose.connect('mongodb://mongodb:27017/KBA_COURSE').then(() => {
     console.log(" MongoDB connected successfully to KBA_COURSE");})
     .catch((error) => {
         console.error(" MongoDB connection failed:", error);

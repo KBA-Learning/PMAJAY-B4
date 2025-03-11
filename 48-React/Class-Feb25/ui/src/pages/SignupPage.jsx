@@ -27,7 +27,7 @@ const SignupPage = () => {
                     UserRole: userRole,
                 }),
             });
-
+console.log("output",response)
             if(!response.ok) {
                 const errData = await response.json();
                 throw new Error(errData.msg || 'Signup failed');

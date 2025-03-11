@@ -36,7 +36,8 @@ userauth.post('/signup',async(req,res)=>{
   if(existingUser){
        res.status(400).send("Username already exist") ;
     }
-    else{
+  else {
+      console.log("hello")
         const newPassword =await bcrypt.hash(Password,10);
         console.log(newPassword);
         //user.set(UserName,{FirstName,LastName,Password:newPassword,UserRole});
