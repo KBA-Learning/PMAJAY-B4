@@ -53,3 +53,7 @@ https://docs.google.com/document/d/1VECY_Ws59pHKrMHUz6FdFir_krSuEyC6juAFVuow7GU/
 ## React Exam link
 
 https://docs.google.com/document/d/1BG-UIf9YL6yz_3Epya6qw2zXxKdFi5h-rn8MwM8kHHA/edit?usp=sharing
+
+## Solidity Assignment Link
+
+https://classroom.github.com/a/03AaZlZq
