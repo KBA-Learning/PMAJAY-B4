@@ -44,10 +44,10 @@ export CORE_PEER_ADDRESS=localhost:7051
 ```
 ### To query
 ```
-`peer chaincode query -C mychannel -n basic -c '{"Args":["GetAllAssets"]}'`
+peer chaincode query -C mychannel -n basic -c '{"Args":["GetAllAssets"]}'
 ```
 ```
-`peer chaincode query -C mychannel -n basic -c '{"function":"ReadAsset","Args":["asset5"]}'`
+peer chaincode query -C mychannel -n basic -c '{"function":"ReadAsset","Args":["asset5"]}'
 ```
 ### For KBA-Automobile Application
 
