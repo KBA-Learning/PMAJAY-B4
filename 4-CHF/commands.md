@@ -6,7 +6,7 @@
 
 `./network.sh -h`
 
-`./network.sh up createChannel`
+`./network.sh up createChannel -ca`
 
 `docker ps -a`
 
@@ -32,7 +32,7 @@ go mod tidy
 ```
 ### Deploy asset-transfer basic sample chaincode listed in the samples.
 
-`./network.sh deployCC -ccn KBA-Automobile -ccp ../KBA-Automobile/Chaincode -ccl go`
+`./network.sh deployCC -ccn KBA-Automobile -ccp ../../KBA-Automobile/Chaincode -ccl go`
 
 
 
