@@ -14,7 +14,7 @@ Note: Open a terminal in the KBA-CHF Folder & Execute the Following Commands
 
 `./network.sh -h`
 
-`./network.sh up createChannel`
+`./network.sh up createChannel -ca`
 
 `docker ps -a`
 
