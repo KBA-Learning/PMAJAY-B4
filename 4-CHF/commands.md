@@ -1,13 +1,5 @@
 ### Fabric Test Network commands 
 
-Note: Open a terminal in the KBA-CHF Folder & Execute the Following Commands
-
-`curl -sSLO https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh && chmod +x install-fabric.sh`
-
-`./install-fabric.sh -f '2.5.12' -c '1.5.15'`
-
-`sudo cp fabric-samples/bin/* /usr/local/bin`
-
 ## To use the script navigate to test-network folder inside the fabric-samples folder,
 
 `cd fabric-samples/test-network/`
@@ -17,14 +9,6 @@ Note: Open a terminal in the KBA-CHF Folder & Execute the Following Commands
 `./network.sh up createChannel`
 
 `docker ps -a`
-
-### For KBA-Automobile Application
-
-`cd addOrg3`
-
-`./addOrg3.sh up`
-
-`cd ..`
 
 # Initializing Go project
 
@@ -80,12 +64,6 @@ peer chaincode query -C mychannel -n KBA-Automobile -c '{"Args":["ReadCar","Car0
 ```
 
 ### Stopping the network
-
-`cd addOrg3`
-
-`./addOrg3.sh down`
-
-`cd ..`
 
 `./network.sh down`
 
