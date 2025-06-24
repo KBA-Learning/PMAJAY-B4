@@ -120,4 +120,18 @@ export CORE_PEER_ADDRESS=localhost:7051
 ```
 peer chaincode query -C autochannel -n KBA-Automobile -c '{"Args":["OrderContract:ReadOrder","ORD-01"]}'
 ```
+# Environment variables for Org3:
 
+```
+export CORE_PEER_LOCALMSPID=Org3MSP
+
+export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/ca.crt
+
+export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp
+
+export CORE_PEER_ADDRESS=localhost:11051
+```
+# Query – ReadOrder – using org2 peer address and tls root cetificates
+```
+peer chaincode query -C autochannel -n KBA-Automobile -c '{"Args":["OrderContract:ReadOrder","ORD-01"]}' --peerAddresses localhost:9051 --tlsRootCertFiles $ORG2_PEER_TLSROOTCERT
+```
