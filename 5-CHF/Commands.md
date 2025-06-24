@@ -1,3 +1,24 @@
+# Bring up the Test network
+```
+cd fabric-samples/test-network
+```
+```
+./network.sh up createChannel -c autochannel -ca -s couchdb
+```
+# Addding org3
+```
+cd addOrg3
+```
+```
+./addOrg3.sh up -c autochannel -ca -s couchdb
+```
+```
+cd ..
+```
+# Checking docker containers
+```
+docker ps -a
+```
 
 ## Create order-contract.go and collections.json
 
