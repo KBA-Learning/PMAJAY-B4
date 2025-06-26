@@ -96,3 +96,31 @@ func (c *CarContract) ReadCar(ctx contractapi.TransactionContextInterface, carID
 
 	return &car, nil
 }
+
+// DeleteCar removes the instance of Car from the world state
+func (c *CarContract) DeleteCar(ctx contractapi.TransactionContextInterface, carID string) (string, error) {
+
+	clientOrgID, err := ctx.GetClientIdentity().GetMSPID()
+	if err != nil {
+	return "", err
+	}
+	if clientOrgID == "Org1MSP" {
+	
+	exists, err := c.CarExists(ctx, carID)
+	if err != nil {
+	return "", fmt.Errorf("Could not read from world state. %s", err)
+	} else if !exists {
+	return "", fmt.Errorf("The asset %s does not exist", carID)
+	}
+	
+	err = ctx.GetStub().DelState(carID)
+	if err != nil {
+	return "", err
+	} else {
+	return fmt.Sprintf("Car with id %v is deleted from the world state.", carID), nil
+	}
+	
+	} else {
+	return "", fmt.Errorf("User under following MSP:%v cannot able to perform this action", clientOrgID)
+	}
+	}
