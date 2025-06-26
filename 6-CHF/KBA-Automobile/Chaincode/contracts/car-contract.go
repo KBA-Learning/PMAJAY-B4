@@ -3,7 +3,7 @@ package contracts
 import (
 	"encoding/json"
 	"fmt"
-
+	"github.com/hyperledger/fabric-chaincode-go/shim"
 	"github.com/hyperledger/fabric-contract-api-go/contractapi"
 )
 
@@ -96,3 +96,115 @@ func (c *CarContract) ReadCar(ctx contractapi.TransactionContextInterface, carID
 
 	return &car, nil
 }
+// DeleteCar removes the instance of Car from the world state
+func (c *CarContract) DeleteCar(ctx contractapi.TransactionContextInterface, carID string) (string, error) {
+
+	clientOrgID, err := ctx.GetClientIdentity().GetMSPID()
+	if err != nil {
+	return "", err
+	}
+	if clientOrgID == "Org1MSP" {
+	
+	exists, err := c.CarExists(ctx, carID)
+	if err != nil {
+	return "", fmt.Errorf("Could not read from world state. %s", err)
+	} else if !exists {
+	return "", fmt.Errorf("The asset %s does not exist", carID)
+	}
+	
+	err = ctx.GetStub().DelState(carID)
+	if err != nil {
+	return "", err
+	} else {
+	return fmt.Sprintf("Car with id %v is deleted from the world state.", carID), nil
+	}
+	
+	} else {
+	return "", fmt.Errorf("User under following MSP:%v cannot able to perform this action", clientOrgID)
+	}
+	}
+	
+// GetAllCars retrieves all the asset with assetype 'car'
+ 
+func (c *CarContract) GetAllCars(ctx contractapi.TransactionContextInterface) ([]*Car, error) {
+
+ 
+	queryString :=`{"selector":{"AssetType":"car"}}`
+	
+	 
+	
+	 
+	resultsIterator, err := ctx.GetStub().GetQueryResult(queryString)
+	
+	 
+	if err != nil {
+	
+	 
+	return nil, err
+	
+	 
+	}
+	
+	 
+	defer resultsIterator.Close()
+	
+	 
+	return carResultIteratorFunction(resultsIterator)
+	
+	 
+	}
+	
+	 
+	
+	 
+	// Iterator function
+	
+	 
+	func carResultIteratorFunction(resultsIterator shim.StateQueryIteratorInterface) ([]*Car, error) {
+	
+	 
+	var cars []*Car
+	
+	 
+	for resultsIterator.HasNext() {
+	
+	 
+	queryResult, err := resultsIterator.Next()
+	
+	 
+	if err != nil {
+	
+	 
+	return nil, err
+	
+	 
+	}
+	
+	 
+	var car Car
+	
+	 
+	err = json.Unmarshal(queryResult.Value, &car)
+	
+	 
+	if err != nil {
+	
+	 
+	return nil, err
+	
+	 
+	}
+	
+	 
+	cars = append(cars, &car)
+	
+	 
+	}
+	
+	 
+	
+	 
+	return cars, nil
+	
+	 
+	}
