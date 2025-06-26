@@ -3,6 +3,8 @@ import (
 "encoding/json"
 "fmt"
 
+"github.com/hyperledger/fabric-chaincode-go/shim"
+
 "github.com/hyperledger/fabric-contract-api-go/contractapi"
 )
 
@@ -154,5 +156,47 @@ return ctx.GetStub().DelPrivateData(collectionName, orderID)
 return fmt.Errorf("Organisation with %v cannot delete the order", clientOrgID)
 }
 }
+
+// GetAllOrders retrieves all the asset with assetype 'Order'
+func (o *OrderContract) GetAllOrders(ctx contractapi.TransactionContextInterface) ([]*Order, error) {
+	collectionName := getCollectionName() 
+	queryString := `{"selector":{"assetType":"Order"}}` 
+	resultsIterator, err := ctx.GetStub().GetPrivateDataQueryResult(collectionName, queryString)
+	 if err != nil {
+	   
+	   return nil, err 
+	   }
+	 defer resultsIterator.Close() 
+	 return orderResultIteratorFunction(resultsIterator) 
+	}
+	
+	// GetOrdersByRange gives a range of order details based on a start key and an end key
+	
+	func (o *OrderContract) GetOrdersByRange(ctx contractapi.TransactionContextInterface, startKey string, endKey string) ([]*Order, error) { 
+	collectionName := getCollectionName() 
+	resultsIterator, err := ctx.GetStub().GetPrivateDataByRange(collectionName, startKey, endKey) 
+	if err != nil { return nil, err } 
+	defer resultsIterator.Close() 
+	return orderResultIteratorFunction(resultsIterator)
+	}
+	 // iterator function
+	 func orderResultIteratorFunction(resultsIterator shim.StateQueryIteratorInterface) ([]*Order, error) { 
+	  
+		var orders []*Order
+	  
+		for resultsIterator.HasNext() {
+	   queryResult, err := resultsIterator.Next()
+	   if err != nil { 
+		return nil, err 
+		} 
+	   var order Order 
+		err = json.Unmarshal(queryResult.Value, &order)
+		if err != nil   { 
+			return nil, err
+		  }
+		orders = append(orders, &order) 
+		 }
+	  return orders, nil
+	  }
 
  

@@ -129,8 +129,10 @@ func (c *CarContract) DeleteCar(ctx contractapi.TransactionContextInterface, car
 func (c *CarContract) GetAllCars(ctx contractapi.TransactionContextInterface) ([]*Car, error) {
 
  
-	queryString :=`{"selector":{"AssetType":"car"}}`
+	queryString :=`{"selector":{"assetType":"car"}}`
 	
+	//queryString := `{"selector":{"assetType":"car"}, "sort":[{ "CarId": "desc"}]}`
+
 	 
 	
 	 
@@ -208,3 +210,13 @@ func (c *CarContract) GetAllCars(ctx contractapi.TransactionContextInterface) ([
 	
 	 
 	}
+	// GetCarsByRange gives a range of asset details based on a start key and end key
+func (c *CarContract) GetCarsByRange(ctx contractapi.TransactionContextInterface, startKey, endKey string) ([]*Car, error) {
+	resultsIterator, err := ctx.GetStub().GetStateByRange(startKey, endKey)
+	if err != nil {
+	return nil, err
+	}
+	defer resultsIterator.Close()
+	return carResultIteratorFunction(resultsIterator)
+	}
+	
