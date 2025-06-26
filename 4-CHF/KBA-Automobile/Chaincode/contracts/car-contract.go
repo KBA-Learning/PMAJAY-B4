@@ -3,7 +3,7 @@ package contracts
 import (
 	"encoding/json"
 	"fmt"
-
+	"github.com/hyperledger/fabric-chaincode-go/shim"
 	"github.com/hyperledger/fabric-contract-api-go/contractapi"
 )
 
@@ -123,4 +123,88 @@ func (c *CarContract) DeleteCar(ctx contractapi.TransactionContextInterface, car
 	} else {
 	return "", fmt.Errorf("User under following MSP:%v cannot able to perform this action", clientOrgID)
 	}
+	}
+	// GetAllCars retrieves all the asset with assetype 'car'
+ 
+func (c *CarContract) GetAllCars(ctx contractapi.TransactionContextInterface) ([]*Car, error) {
+
+ 
+	queryString :=`{"selector":{"AssetType":"car"}}`
+	
+	 
+	
+	 
+	resultsIterator, err := ctx.GetStub().GetQueryResult(queryString)
+	
+	 
+	if err != nil {
+	
+	 
+	return nil, err
+	
+	 
+	}
+	
+	 
+	defer resultsIterator.Close()
+	
+	 
+	return carResultIteratorFunction(resultsIterator)
+	
+	 
+	}
+	
+	 
+	
+	 
+	// Iterator function
+	
+	 
+	func carResultIteratorFunction(resultsIterator shim.StateQueryIteratorInterface) ([]*Car, error) {
+	
+	 
+	var cars []*Car
+	
+	 
+	for resultsIterator.HasNext() {
+	
+	 
+	queryResult, err := resultsIterator.Next()
+	
+	 
+	if err != nil {
+	
+	 
+	return nil, err
+	
+	 
+	}
+	
+	 
+	var car Car
+	
+	 
+	err = json.Unmarshal(queryResult.Value, &car)
+	
+	 
+	if err != nil {
+	
+	 
+	return nil, err
+	
+	 
+	}
+	
+	 
+	cars = append(cars, &car)
+	
+	 
+	}
+	
+	 
+	
+	 
+	return cars, nil
+	
+	 
 	}
