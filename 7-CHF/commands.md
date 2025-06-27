@@ -81,4 +81,36 @@ peer chaincode query -C autochannel -n KBA-Automobile -c '{"Args":["OrderContrac
 ```
 
 
+# Try these queries : 
 
+Note: Make sure there is a order details matched with Car-02
+
+# Matching orders
+
+```
+peer chaincode query -C autochannel -n KBA-Automobile -c '{"Args":["GetMatchingOrders", "Car-02"]}'
+```
+Match order
+```
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile $ORDERER_CA -C autochannel -n KBA-Automobile --peerAddresses localhost:7051 --tlsRootCertFiles $ORG1_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $ORG2_PEER_TLSROOTCERT -c '{"function":"MatchOrder","Args":["Car-02","ORD-01"]}'
+```
+# Environment variables for Org3:
+```
+export CORE_PEER_LOCALMSPID=Org3MSP
+
+export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/ca.crt
+
+export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp
+
+export CORE_PEER_ADDRESS=localhost:11051
+```
+# Register car
+
+```
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile $ORDERER_CA -C autochannel -n KBA-Automobile --peerAddresses localhost:7051 --tlsRootCertFiles $ORG1_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $ORG2_PEER_TLSROOTCERT -c '{"function":"RegisterCar","Args":["Car-02","Bob","KL-01-7777"]}'
+```
+# History Query
+
+```
+peer chaincode query -C autochannel -n KBA-Automobile -c '{"Args":["GetCarHistory", "Car-02"]}' --peerAddresses localhost:9051 --tlsRootCertFiles $ORG2_PEER_TLSROOTCERT
+```
