@@ -59,9 +59,9 @@ peer chaincode query -C autochannel -n KBA-Automobile -c '{"Args":["GetCarHistor
 ```
 export MAKE=$(echo -n "Tata" | base64 | tr -d \n)
 
-export MODEL=$(echo -n "Harrier" | base64 | tr -d \n)
+export MODEL=$(echo -n "Tiago" | base64 | tr -d \n)
 
-export COLOR=$(echo -n "Black" | base64 | tr -d \n)
+export COLOR=$(echo -n "Red" | base64 | tr -d \n)
 
 export DEALER_NAME=$(echo -n "Popular" | base64 | tr -d \n)
 ```
