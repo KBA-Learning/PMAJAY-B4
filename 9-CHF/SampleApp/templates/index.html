@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sample App</title>
+<link rel="stylesheet" href="/public/styles/style.css">
+<script src="/public/scripts/index.js"></script>
+</head>
+<body>
+<h1>Manufacturer Dashboard</h1>
+
+<h2>Create Car</h2>
+<form id="addForm">
+<table>
+<tr>
+<td>CarId</td>
+<td><input id="carId" type="text" required /></td>
+</tr>
+<tr>
+<td>Make</td>
+<td><input id="make" type="text" required /></td>
+</tr>
+<tr>
+<td>Model</td>
+<td><input id="model" type="text" required /></td>
+</tr>
+<tr>
+<td>Color</td>
+<td><input id="color" type="text" required /></td>
+</tr>
+<tr>
+<td>Date of Manufacture</td>
+<td><input id="dateOfManufacture" type="date" required /></td>
+</tr>
+<tr>
+<td>Manufacturer Name</td>
+<td><input id="manufacturerName" type="text" required /></td>
+</tr>
+<tr>
+<td></td>
+<td><button onclick="addData(event)">Create Car</button>
+<button type="reset">Clear</button>
+</td>
+</tr>
+</table>
+</form>
+
+<h2>Query Car</h2>
+<form id="readForm">
+<table>
+<tr>
+<td>Enter CarId</td>
+<td>
+<input id="carIdInput" type="text" />
+</td>
+</tr>
+<tr>
+<td>
+<button type="submit" onclick="readData(event)">Query Car</button>
+<button type="reset">Clear</button>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+
+ 
+
